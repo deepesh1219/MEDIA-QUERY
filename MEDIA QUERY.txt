@@ -1,0 +1,179 @@
+ASSIGNMENT QUESTIONS
+MEDIA QUERY
+INDEX.HTML 
+1. Create a simple webpage with a header, a main content section, and a footer. Apply a media query that
+changes the background color of the header to blue when the screen width is less than 600px.
+Ans. <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Responsive Header</h1>
+    </header>
+    <main>
+        <p>Main Content</p>
+    </main>
+    <footer>
+        <p>Footer</p>
+    </footer>
+</body>
+</html>
+
+2. Create an image gallery with three images in a row. Use media queries to adjust the layout to two images in a
+row for screens smaller than 800px and one image in a row for screens smaller than 500px.
+For image use this link (Image Link).
+Ans. <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="img">
+        <img src="https://picsum.photos/200/300" alt="Imag 1" />
+        <img src="https://picsum.photos/200/300" alt="Imag 2" />
+        <img src="https://picsum.photos/200/300" alt="Imag 3" />
+    </div>
+</body>
+</html>
+
+3. Create a navigation bar with five links. Apply a media query that converts the navigation into a vertical list for
+screens smaller than 768px and also changes the background color to gray.
+Ans. <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="nav-Bar">
+        <a href="#">HOME</a>
+        <a href="#">ABOUT</a>
+        <a href="#">SERVICES</a>
+        <a href="#">PORTFOLIO</a>
+        <a href="#">CONTACT</a>
+    </nav>
+</body>
+</html>
+
+4. Create a grid based layout containing four grid items which arranges them as the screen size changes.
+Ans. <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="item header">Box1</div>
+        <div class="item sidebar">Box2</div>
+        <div class="item main">Box3</div>
+        <div class="item footer">Box4</div>
+    </div>
+</body>
+</html>
+
+STYLE.CSS
+
+header {
+    background-color: #f2f2f2;
+    text-align: center;
+    padding: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    header {
+    background-color: blue;
+    }
+}
+
+.img {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.img-img {
+    width: 30%;
+    margin: 10px;
+}
+@media screen and (max-width: 800px) {
+    .image-img {
+    width: 45%;
+    }
+}
+@media screen and (max-width: 500px) {
+    .image-img {
+    width: 100%;
+    }
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+}
+.navbar a {
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+}
+@media screen and (max-width: 768px) {
+.navbar {
+    flex-direction: column;
+    align-items: center;
+    background-color: gray;
+    }
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    }
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+}
+.item {
+    background-color: #ddd;
+    padding: 20px;
+    text-align: center;
+}
+.header {
+    background-color: red;
+    color: white;
+}
+.sidebar {
+    background-color: green;
+    color: white;
+}
+.main {
+    background-color: blue;
+    color: white;
+}
+.footer {
+    background-color: chocolate;
+    color: white;
+}
+/* Media Queries */
+@media screen and (min-width: 768px) {
+.grid-container {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "header header header"
+      "sidebar main main"
+      "footer footer footer";
+    }
+}
